@@ -28,7 +28,6 @@
 
     header {
       background: rgba(39, 37, 33, 0.68);
-      color: #fff;
       position: sticky;
       top: 0;
       z-index: 10;
@@ -45,7 +44,7 @@
 
     nav a {
       align-items: center;
-      color: inherit;
+      color: #000;
       display: flex;
       font-size: 14px;
       justify-content: center;
@@ -57,6 +56,10 @@
     nav a:hover {
       color: #fff;
       background: rgba(117, 111, 99, 0.45);
+    }
+
+    nav a.active {
+      color: #fff;
     }
 
     main {
@@ -162,7 +165,7 @@
   <header>
     <nav aria-label="サイト">
       <a href="/">ホーム</a>
-      <a href="/page11/">よくある質問</a>
+      <a href="/page11/" class="active">よくある質問</a>
       <a href="/page12/">お問い合わせ</a>
       <a href="/page13/">会社概要</a>
       <a href="/s-projects-side-by-side/">令和６年度実績</a>
