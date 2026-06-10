@@ -4,15 +4,131 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>お問い合わせ | ONE FAMiLY</title>
+  <meta name="description" content="ONE FAMiLYへのお問い合わせ。LINEからお気軽に質問やお問い合わせができます。">
   <style>
-    body{margin:0;color:#272521;background:#fff;font-family:"Hiragino Mincho ProN","Yu Mincho","MS PMincho",serif;line-height:1.8}
-    header{background:#272521;color:#fff}
-    nav{display:flex;flex-wrap:wrap;gap:10px 24px;justify-content:center;padding:12px 16px}
-    nav a{color:inherit;text-decoration:none;font-size:14px}
-    main{max-width:760px;margin:0 auto;padding:56px 22px 80px;text-align:center}
-    h1{font-size:30px;font-weight:400;margin:0 0 24px}
-    p{margin:0 auto 18px;color:#4e4a42;max-width:560px}
-    .button{display:inline-block;margin-top:10px;padding:10px 24px;border:1px solid #272521;color:#272521;text-decoration:none}
+    :root {
+      --ink: #272521;
+      --muted: #4e4a42;
+      --line: #d9d4ca;
+      --band: #f4f1eb;
+      --accent: #756f63;
+      --line-green: #06c755;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #fff;
+      color: var(--ink);
+      font-family: "Hiragino Mincho ProN", "Yu Mincho", "MS PMincho", serif;
+      line-height: 1.8;
+      margin: 0;
+    }
+
+    header {
+      background: var(--ink);
+      color: #fff;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 24px;
+      justify-content: center;
+      padding: 12px 16px;
+    }
+
+    nav a {
+      color: inherit;
+      font-size: 14px;
+      text-decoration: none;
+    }
+
+    main {
+      margin: 0 auto;
+      max-width: 760px;
+      padding: 64px 22px 86px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 30px;
+      font-weight: 400;
+      line-height: 1.4;
+      margin: 0 0 28px;
+    }
+
+    .panel {
+      background: var(--band);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      margin: 0 auto;
+      max-width: 560px;
+      padding: 42px 28px;
+    }
+
+    .panel p {
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.9;
+      margin: 0;
+    }
+
+    .button {
+      background: var(--line-green);
+      color: #fff;
+      display: inline-block;
+      font-family: Arial, sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 0;
+      margin-top: 28px;
+      min-width: 180px;
+      padding: 12px 26px;
+      text-decoration: none;
+    }
+
+    .sub {
+      color: var(--accent);
+      font-size: 14px;
+      margin: 22px auto 0;
+      max-width: 440px;
+    }
+
+    footer {
+      border-top: 1px solid var(--line);
+      color: var(--accent);
+      font-size: 12px;
+      padding: 18px;
+      text-align: center;
+    }
+
+    @media (max-width: 560px) {
+      main {
+        padding: 48px 18px 70px;
+      }
+
+      h1 {
+        font-size: 26px;
+      }
+
+      .panel {
+        padding: 34px 20px;
+      }
+
+      .panel p {
+        font-size: 16px;
+      }
+
+      nav {
+        gap: 8px 14px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -27,9 +143,12 @@
   </header>
   <main>
     <h1>お問い合わせ</h1>
-    <p>商品、メンテナンス、アフターサービスについてのご相談はこちらからお願いいたします。</p>
-    <p>Instagramからもお問い合わせいただけます。</p>
-    <a class="button" href="https://www.instagram.com/__onefamily___" target="_blank" rel="noreferrer noopener">Instagramを開く</a>
+    <section class="panel">
+      <p>LINEでお気軽に質問や<br>お問い合わせができるようになりました</p>
+      <a class="button" href="https://lin.ee/2woFK0p" target="_blank" rel="noreferrer noopener">LINEでお気軽に</a>
+      <p class="sub">商品やメンテナンスについてのご相談はこちらからご連絡ください。</p>
+    </section>
   </main>
+  <footer>©2019 by ONE FAMiLY. Project Start</footer>
 </body>
 </html>

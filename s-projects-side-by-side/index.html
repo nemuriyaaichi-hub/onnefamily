@@ -4,15 +4,181 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>令和６年度実績 | ONE FAMiLY</title>
+  <meta name="description" content="ONE FAMiLYの令和6年度ふるさと納税返礼品実績。寄付集計と返礼品別ランキングについて。">
   <style>
-    body{margin:0;color:#272521;background:#fff;font-family:"Hiragino Mincho ProN","Yu Mincho","MS PMincho",serif;line-height:1.8}
-    header{background:#272521;color:#fff}
-    nav{display:flex;flex-wrap:wrap;gap:10px 24px;justify-content:center;padding:12px 16px}
-    nav a{color:inherit;text-decoration:none;font-size:14px}
-    main{max-width:820px;margin:0 auto;padding:56px 22px 80px}
-    h1{font-size:30px;font-weight:400;text-align:center;margin:0 0 28px}
-    p{margin:0 auto 20px;color:#4e4a42;max-width:620px;text-align:center}
-    .panel{background:#f4f1eb;padding:28px;margin-top:28px;text-align:center}
+    :root {
+      --ink: #272521;
+      --muted: #4e4a42;
+      --line: #d9d4ca;
+      --band: #f4f1eb;
+      --accent: #756f63;
+      --line-green: #06c755;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #fff;
+      color: var(--ink);
+      font-family: "Hiragino Mincho ProN", "Yu Mincho", "MS PMincho", serif;
+      line-height: 1.8;
+      margin: 0;
+    }
+
+    header {
+      background: var(--ink);
+      color: #fff;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 24px;
+      justify-content: center;
+      padding: 12px 16px;
+    }
+
+    nav a {
+      color: inherit;
+      font-size: 14px;
+      text-decoration: none;
+    }
+
+    main {
+      margin: 0 auto;
+      max-width: 980px;
+      padding: 56px 22px 80px;
+    }
+
+    h1 {
+      font-size: 30px;
+      font-weight: 400;
+      line-height: 1.4;
+      margin: 0 0 42px;
+      text-align: center;
+    }
+
+    .result {
+      align-items: center;
+      border-top: 1px solid var(--line);
+      display: grid;
+      gap: 34px;
+      grid-template-columns: minmax(0, 1fr) minmax(280px, 440px);
+      padding: 42px 0;
+    }
+
+    .result:nth-of-type(even) {
+      grid-template-columns: minmax(280px, 440px) minmax(0, 1fr);
+    }
+
+    .result:nth-of-type(even) .copy {
+      order: 2;
+    }
+
+    .number {
+      color: var(--accent);
+      font-family: Georgia, serif;
+      font-size: 42px;
+      line-height: 1;
+      margin: 0 0 18px;
+    }
+
+    h2 {
+      font-size: 22px;
+      font-weight: 400;
+      line-height: 1.55;
+      margin: 0 0 18px;
+    }
+
+    .amount {
+      font-size: 36px;
+      line-height: 1.3;
+      margin: 0 0 8px;
+    }
+
+    p {
+      color: var(--muted);
+      margin: 0 0 10px;
+    }
+
+    img {
+      display: block;
+      height: auto;
+      width: 100%;
+    }
+
+    .image {
+      background: var(--band);
+      padding: 10px;
+    }
+
+    .contact {
+      background: var(--band);
+      margin: 42px auto 0;
+      max-width: 560px;
+      padding: 28px;
+      text-align: center;
+    }
+
+    .button {
+      background: var(--line-green);
+      color: #fff;
+      display: inline-block;
+      font-family: Arial, sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      margin-top: 8px;
+      min-width: 180px;
+      padding: 12px 26px;
+      text-decoration: none;
+    }
+
+    footer {
+      border-top: 1px solid var(--line);
+      color: var(--accent);
+      font-size: 12px;
+      padding: 18px;
+      text-align: center;
+    }
+
+    @media (max-width: 720px) {
+      main {
+        padding: 42px 18px 64px;
+      }
+
+      h1 {
+        font-size: 26px;
+        margin-bottom: 30px;
+      }
+
+      .result,
+      .result:nth-of-type(even) {
+        grid-template-columns: 1fr;
+        gap: 22px;
+        padding: 34px 0;
+      }
+
+      .result:nth-of-type(even) .copy {
+        order: 0;
+      }
+
+      .number {
+        font-size: 36px;
+      }
+
+      .amount {
+        font-size: 30px;
+      }
+
+      nav {
+        gap: 8px 14px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -26,9 +192,37 @@
     </nav>
   </header>
   <main>
-    <h1>令和６年度実績</h1>
-    <p>ONE FAMiLYの活動実績を掲載するページです。</p>
-    <div class="panel">掲載内容を準備中です。</div>
+    <h1>令和６年度 ふるさと納税返礼品実績について</h1>
+
+    <section class="result">
+      <div class="copy">
+        <p class="number">01</p>
+        <h2>令和6年 ふるさと納税集計</h2>
+        <p class="amount">５,４２７、０００円</p>
+        <p>の寄付をいただきました</p>
+      </div>
+      <div class="image">
+        <img src="https://static.wixstatic.com/media/0a3a8b_42a7568481244ad4ad190d62f03bf748~mv2.png/v1/fill/w_1100,h_462,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202025-08-28%2020_56_37.png" alt="令和6年ふるさと納税集計">
+      </div>
+    </section>
+
+    <section class="result">
+      <div class="copy">
+        <p class="number">02</p>
+        <h2>返礼品別ランキング</h2>
+        <p>ねこちゃん：ハンモックタイプの３種類が人気です</p>
+        <p>わんちゃん：大きめタイプ、ドーム型が人気です</p>
+      </div>
+      <div class="image">
+        <img src="https://static.wixstatic.com/media/0a3a8b_536a08d3e011452ead884d7f73d24358~mv2.png/v1/fill/w_880,h_660,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202025-08-28%2020_55_43.png" alt="返礼品別ランキング">
+      </div>
+    </section>
+
+    <section class="contact">
+      <p>LINEでお気軽にお問い合わせができるようになりました</p>
+      <a class="button" href="https://lin.ee/2woFK0p" target="_blank" rel="noreferrer noopener">LINEでお気軽に</a>
+    </section>
   </main>
+  <footer>©2019 by ONE FAMiLY. Project Start</footer>
 </body>
 </html>
