@@ -674,9 +674,11 @@
     <script type="wix/htmlEmbeds" id="pageHtmlEmbeds.bodyEnd start"></script>
     <div id="onefamily-mobile-site">
       <header class="of-mobile-header">
-        <a href="#top">ホーム</a>
-        <a href="#collection">COLLECTION</a>
-        <a href="#care">メンテナンス</a>
+        <a href="https://www.onefamily.store/">ホーム</a>
+        <a href="https://www.onefamily.store/page11">よくある質問</a>
+        <a href="https://www.onefamily.store/page12">お問い合わせ</a>
+        <a href="https://www.onefamily.store/page13">会社概要</a>
+        <a href="https://www.onefamily.store/s-projects-side-by-side">令和６年度実績</a>
       </header>
       <main id="top">
         <section class="of-hero">
@@ -711,6 +713,38 @@
       </main>
       <footer class="of-mobile-footer">© ONE FAMiLY</footer>
     </div>
+    <script>
+      (function () {
+        const headerLinks = {
+          "ホーム": "https://www.onefamily.store/",
+          "よくある質問": "https://www.onefamily.store/page11",
+          "お問い合わせ": "https://www.onefamily.store/page12",
+          "会社概要": "https://www.onefamily.store/page13",
+          "令和６年度実績": "https://www.onefamily.store/s-projects-side-by-side"
+        };
+
+        function normalizeHeaderLinks() {
+          document
+            .querySelectorAll("#SITE_HEADER a[data-testid='linkElement'], .of-mobile-header a")
+            .forEach(function (link) {
+              const label = link.textContent.trim();
+              if (headerLinks[label]) {
+                link.href = headerLinks[label];
+                link.target = "_self";
+              }
+            });
+        }
+
+        normalizeHeaderLinks();
+        window.addEventListener("load", normalizeHeaderLinks);
+        document.addEventListener("click", function (event) {
+          const link = event.target.closest("#SITE_HEADER a[href], .of-mobile-header a[href]");
+          if (!link) return;
+          event.stopImmediatePropagation();
+          window.location.assign(link.href);
+        }, true);
+      }());
+    </script>
     <style>
       #onefamily-mobile-site {
         display: none;
@@ -739,11 +773,12 @@
           color: #fff;
           display: flex;
           font-size: 12px;
-          gap: 18px;
+          gap: 10px 14px;
           justify-content: center;
-          padding: 12px 10px;
+          padding: 10px 12px;
           position: sticky;
           top: 0;
+          flex-wrap: wrap;
           z-index: 10;
         }
 
