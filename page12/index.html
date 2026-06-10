@@ -114,6 +114,96 @@
       max-width: 440px;
     }
 
+    .form-section {
+      margin: 56px auto 0;
+      max-width: 560px;
+      text-align: left;
+    }
+
+    .form-section h2 {
+      font-size: 24px;
+      font-weight: 400;
+      margin: 0 0 4px;
+      text-align: center;
+    }
+
+    .form-section .form-lead {
+      color: var(--accent);
+      font-size: 14px;
+      margin: 0 0 28px;
+      text-align: center;
+    }
+
+    .field {
+      margin-bottom: 20px;
+    }
+
+    .field label {
+      display: block;
+      font-size: 14px;
+      margin-bottom: 6px;
+    }
+
+    .field .req {
+      color: #b3261e;
+      font-size: 12px;
+      margin-left: 4px;
+    }
+
+    .field input,
+    .field select,
+    .field textarea {
+      background: #fff;
+      border: 1px solid var(--line);
+      color: var(--ink);
+      font-family: inherit;
+      font-size: 15px;
+      line-height: 1.6;
+      padding: 10px 12px;
+      width: 100%;
+    }
+
+    .field input:focus,
+    .field select:focus,
+    .field textarea:focus {
+      border-color: var(--accent);
+      outline: none;
+    }
+
+    .field textarea {
+      min-height: 140px;
+      resize: vertical;
+    }
+
+    .submit-button {
+      background: var(--ink);
+      border: 0;
+      color: #fff;
+      cursor: pointer;
+      display: block;
+      font-family: inherit;
+      font-size: 15px;
+      letter-spacing: 2px;
+      margin: 28px auto 0;
+      min-width: 180px;
+      padding: 12px 26px;
+    }
+
+    .submit-button:hover {
+      background: var(--accent);
+    }
+
+    .form-status {
+      display: none;
+      font-size: 15px;
+      margin-top: 22px;
+      text-align: center;
+    }
+
+    .form-status.show {
+      display: block;
+    }
+
     footer {
       border-top: 1px solid var(--line);
       color: var(--accent);
@@ -176,7 +266,64 @@
       <a class="button" href="https://lin.ee/2woFK0p" target="_blank" rel="noreferrer noopener">LINEでお気軽に</a>
       <p class="sub">商品やメンテナンスについてのご相談はこちらからご連絡ください。</p>
     </section>
+    <section class="form-section">
+      <h2>お問い合わせフォーム</h2>
+      <p class="form-lead">ONE FAMiLY</p>
+      <form name="contact" method="POST" action="/page12/thanks.html" data-netlify="true" netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="contact">
+        <p style="display:none"><label>このフィールドは入力しないでください<input name="bot-field"></label></p>
+        <div class="field">
+          <label for="email">メールアドレス<span class="req">※必須</span></label>
+          <input type="email" id="email" name="メールアドレス" required autocomplete="email">
+        </div>
+        <div class="field">
+          <label for="name">お名前<span class="req">※必須</span></label>
+          <input type="text" id="name" name="お名前" required autocomplete="name">
+        </div>
+        <div class="field">
+          <label for="topic">お問い合わせ内容</label>
+          <select id="topic" name="お問い合わせ内容">
+            <option value="">選択してください</option>
+            <option>商品について</option>
+            <option>ONE FAMiLYについて</option>
+            <option>発送、お支払いについて</option>
+            <option>メンテナンスについて</option>
+            <option>その他</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="message">お問い合わせをご記入ください<span class="req">※必須</span></label>
+          <textarea id="message" name="お問い合わせ" required></textarea>
+        </div>
+        <button type="submit" class="submit-button">送信</button>
+        <p class="form-status" id="form-status"></p>
+      </form>
+    </section>
   </main>
+  <script>
+    document.querySelector('form[name="contact"]').addEventListener('submit', function (e) {
+      e.preventDefault();
+      var form = e.target;
+      var status = document.getElementById('form-status');
+      var button = form.querySelector('.submit-button');
+      button.disabled = true;
+      fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(new FormData(form)).toString()
+      }).then(function (res) {
+        if (!res.ok) throw new Error(res.status);
+        form.reset();
+        status.textContent = 'お問い合わせを送信しました。ご連絡ありがとうございます。';
+        status.classList.add('show');
+      }).catch(function () {
+        status.textContent = '送信に失敗しました。お手数ですが時間をおいて再度お試しいただくか、LINEよりご連絡ください。';
+        status.classList.add('show');
+      }).finally(function () {
+        button.disabled = false;
+      });
+    });
+  </script>
   <footer>©2019 by ONE FAMiLY. Project Start</footer>
 </body>
 </html>
